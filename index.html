@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Alex Advani - Portfolio - Unity Games Programmer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1>Alex Advani</h1>
+						<h2>Unity Games Programmer</h2>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">About Me</a></li>
+							<li><a href="#first">Platformer Project</a></li>
+							<li><a href="#second">Digital Desperado</a></li>
+							<li><a href="#third">Ascender</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+				<footer id="main">
+
+					<!-- Introduction -->
+						<section id="intro" class="main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>About Me</h2>
+									</header>
+									<p class="about-section">
+										Hi, my name is Alex. I am a programmer graduated with a degree in 
+										Computer Games Development who is extremely passionate about the 
+										gaming industry and the great experiences that come from it. I 
+										strongly believe in creating games that connect with people and 
+										allow them to explore new worlds and ideas. As the industry 
+										continually evolves, I enjoy learning along with it. When I’m not 
+										exploring the world of game programming, I can be found exploring 
+										games, books and movies.
+									</p>
+									<p class="about-section">
+										I am seeking to truly enter the game industry and be part of a team 
+										and their creative endeavours.
+									</p>
+								</div>
+								<span class="image"><img src="images/ProfileImage.png" alt="" /></span>
+							</div>
+						</section>
+
+					<!-- First Section - Platformer Project -->
+					<section id="first" class="main special">
+						<header class="major">
+							<h2>Unnamed Platformer Project</h2>
+							<h4>Solo Project - Ongoing</h4>
+							<video class="image fit video-fit" autoplay muted loop>
+								<source src="videos/Platformer Project Video.mp4" type="video/mp4">
+							</video>
+						</header>
+
+						<h2 class="align-left">Features:</h2>
+						<ul class="content">
+							<li>2D Skeleton Animation</li>
+							<li>Dynamic 2D Camera</li>
+							<li>Controller Support</li>
+							<li>Controller Rumble Support</li>
+							<li>Control Prompts React to Control Changes</li>
+							<li>Remappable Controls (for all control methods)</li>
+							<li>Object Pooling</li>
+							<li>Save System</li>
+						</ul>
+
+						<p class="article">
+							The Unnamed Platformer Project is a 2D platformer focused on delivering intense gunplay 
+							and fast action. It is a personal project developed with the aim of creating a completed, 
+							polished game while in between jobs. Currently, this is a gameplay prototype 
+							(hence the ‘Unnamed’ aspect and not a clever homage to the current goose phenomenon).
+							At the current stage, I have built the game with the aim to create a character 
+							that is intuitive to control from the moment the game starts, both in terms of movement 
+							and in terms of firing. 
+						</p>
+
+						<p class="article remove-paragraph-space">
+							The player has a vast array of movement abilities including:
+						</p>
+						<ul class="content">
+							<li>Double Jump</li>
+							<li>Dash</li>
+							<li>Slide</li>
+							<li>Wall-Jump</li>
+							<li>Wall-Slide</li>
+							<li>Ledge Grab</li>
+							<li>Ledge Climb</li>
+							<li>Drop Through Thin Platforms</li>
+						</ul>
+
+						<video class="image fit video-fit" autoplay muted loop>
+							<source src="videos/Platformer Project Movement Video.mp4" type="video/mp4">
+						</video>
+
+						<div class="collapse" id="platformer-collapse">
+							<div class="card card-body">
+								<p class="article">
+									The greatest challenge in developing the prototype was determining how the game 
+									would feel to play, I had to develop how the character controller was going to work, 
+									whether it was using Unity’s 2D physics system for collision and velocity or using 
+									raycasts for collision and calculating velocity manually. At the time, Unity’s 2D 
+									features were more limited and I opted for the latter option for snappier classic 
+									feeling character. I eventually found a motor component by the name of 
+									<a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller" target="_blank">Platformer Controller 2D</a> which I tweaked the code of 
+									to further tweak the movement mechanics. These changes involved changing the required 
+									input of wall jumps to resemble a similar control method to titles such as 
+									Super Metroid and implementing a ledge grab and climb mechanic so the character could 
+									fight off enemies while holding onto a ledge between moments of platforming. My main 
+									focus with the movement mechanics was to allow the character to be able to defend 
+									themselves in as many states as possible, the only exceptions being climbing ledges, 
+									dashing or sliding.  During my time working on altering the motor code, I also fixed 
+									an issue with collision which was raised on the <a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller/issues/52" target="_blank">Github page</a>
+								</p>
+
+								<img class="image fit image-center" src="images/PlatformerProjectAimImage.png">
+
+								<p class="article">
+									Another issue arose upon deciding on the animation method, 2D skeleton animation. 
+									This was chosen to best incorporate characters with high resolution art by creating a texture 
+									compiled with animatable parts to save on memory. Animating as a skeleton also allowed 
+									the ability to animate in layers as well as interpolate between animations smoothly.
+									I chose Spine as my animation software due to its wide array of features, 
+									multiplatform usage and active community. However, Spine didn’t integrate with Unity’s 
+									animation tree so I had to develop my own animation logic in a separate component that 
+									would inform the SkeletonAnimator component what animation to play on what animation layer. 
+									The solution involved using an MVC style approach where the AnimatorController 
+									(View in this case) would have access to player state fed from a main PlayerController 
+									that took in inputs and fed it to the motor (Model) to utilise movement. On top of this, 
+									the PlayerController would manage elements exclusive to the player such as weapon inventory.
+								</p>
+
+								<p class="article">
+									Working on this solo project has given me a chance to grow in a variety of areas
+									and allowed me to define my own solutions in those areas.
+								</p>
+
+								<h2 class="align-left">Asset Packages Used:</h2>
+								<ul class="content">
+									<li><a href="https://github.com/Unity-Technologies/2d-extras" target="_blank">2D Extras (Tilemap Brushes)</a></li>
+									<li><a href="https://assetstore.unity.com/packages/tools/gui/beautiful-transitions-56442" target="_blank">Beautiful Transitions</a></li>
+									<li><a href="https://assetstore.unity.com/packages/tools/input-management/easy-save-the-complete-save-load-asset-768" target="_blank">Easy Save 3</a href="" target="_blank"></li>
+									<li><a href="https://assetstore.unity.com/packages/tools/gui/modern-ui-pack-150824" target="_blank">Modern UI Pack</a></li>
+									<li><a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller" target="_blank">Platformer Controller 2D</a href="" target="_blank"></li>
+									<li><a href="https://assetstore.unity.com/packages/tools/camera/pro-camera-2d-the-definitive-2d-2-5d-unity-camera-plugin-42095" target="_blank">ProCamera 2D</a href="" target="_blank"></li>
+									<li><a href="https://assetstore.unity.com/packages/audio/sound-fx/pro-sound-collection-50235" target="_blank">Pro Sound Collection</a href="" target="_blank"></li>
+									<li><a href="https://assetstore.unity.com/packages/tools/utilities/rewired-21676" target="_blank">Rewired</a href="" target="_blank"></li>
+									<li><a href="http://esotericsoftware.com/spine-unity" target="_blank">Spine-Unity</a href="" target="_blank"> (Animations created in the <a href="http://esotericsoftware.com/" target="_blank">Spine</a> animation application)</li>
+									<li><a href="https://assetstore.unity.com/packages/vfx/particles/stylized-projectile-pack-1-106979" target="_blank">Stylized Projectile Pack Vol 1</a href="" target="_blank"></li>
+									<li><a href="https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126" target="_blank">TextMesh Pro</a></li>
+									<li><a href="https://bitbucket.org/UnityUIExtensions/unity-ui-extensions/src/master/" target="_blank">UI Extensions</a></li>
+									<li><a href="https://assetstore.unity.com/packages/audio/sound-fx/universal-sound-fx-17256" target="_blank">Universal Sound FX</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<footer class="major">
+							<ul class="actions special">
+								<li><a href="https://dl.dropboxusercontent.com/s/9i0yhm4n7kvtabz/PlatformerProject%20v0_22.zip" class="button primary">Playable Demo</a></li>
+								<li><a href="https://github.com/AlexAdvani/PlatformerShooterProject" target="_blank" class="button primary">Github Code</a></li>
+							</ul>
+							<button class="button primary collapse-button" data-toggle="collapse" data-target="#platformer-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
+						</footer>
+					</section>
+
+					<!-- Second Section - Digital Desperado -->
+					<section id="second" class="main special">
+						<header class="major">
+							<h2>Digital Desperado</h2>
+							<h4>Team University Project - Programmer (Level Generation)</h4>
+							<video class="image fit video-fit" autoplay muted loop>
+								<source src="videos/Digital Desperado Video.mp4" type="video/mp4">
+							</video>
+						</header>
+						
+						<p class="article">
+							Digital Desperado is a First Person Shooter developed to meet TIGA’s BUGS 
+							(Business & University Games Syndicate) submission guidelines. The game is 
+							focused on destroying an array of targets in a variety of levels as quickly 
+							as possible. Our focus when starting the project was to be able to make 
+							designing content as efficient as possible with the limited development time 
+							we had (2 months amongst other projects in our final year. Every level in the 
+							game is built from an XML file that generates all of the targets and level 
+							objects. We utilized this approach so that every team member could create 
+							levels without the need to use Unity and manually add scene files. There was 
+							also a level editor proposed in the early stages as well but this was scrapped 
+							to focus on a more polished experience.
+						</p>
+
+						<div class="collapse" id="digital-desperado-collapse">
+							<div class="card card-body">
+								<h2 class="align-left">My Contribution</h2>
+								<p class="article">
+									My role in the team was to build the functionality that would generate 
+									levels from XML files and checking the validity of the final result to 
+									make sure that each level had one start point, one exit point and 
+									at least 1 platform and 1 target.  Along with this, I worked on creating the 
+									leaderboard system which is also saved into level XML file. I also worked on 
+									resolving bugs with the lead programmer in a pair programming setup.
+								</p>
+
+								<p class="article">
+									One challenge that arose during development came from our approach to dynamically
+									create levels from an external file compared to designing them in Unity itself.
+									The problem was that while we were able to detect XML files in the desired folder
+									and display the results, the system was able to detect any XML file and would
+									crash without notice. We resolved this by loading all of the level data as soon
+									as the game started and checking for each of the required nodes. Each failed
+									level was flagged and an error was displayed for each level and the node(s)
+									it was missing. We also made a check for if the folder was empty or missing.
+								</p>
+							</div>
+						</div>
+					
+						<footer class="major">
+							<ul class="actions special">
+								<li><a href="https://gamejolt.com/games/digital-desperado/54563" target="_blank" class="button primary">Playable Demo</a></li>
+								<li><a href="https://github.com/AlexAdvani/Digital-Desperado" target="_blank" class="button primary">Github Code</a></li>
+							</ul>
+							<button class="button primary collapse-button" data-toggle="collapse" data-target="#digital-desperado-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
+						</footer>
+					</section>
+
+					<!-- Third Section - Ascender -->
+					<section id="third" class="main special">
+						<header class="major">
+							<h2>Ascender</h2>
+							<h4>Team Global Game Jam Project - Programmer (Gameplay)</h4> 
+							<video class="image fit video-fit" autoplay muted loop>
+								<source src="videos/Ascender Video.mp4" type="video/mp4">
+							</video>
+						</header>
+
+						<p class="article">
+							Ascender is a Platformer developed for the Global Game Jam in 2014. The theme we were
+							presented with was “We don’t see things as they are, we see them as we are”. The game
+							features an alien trying to escape a strange fortress while utilising a drone equipped
+							with a light to see the world around you. On top of the theme, we also opted to use the
+							modifiers “You Only Live Thrice” (the player gets 3 lives) and “I Am Who I Want to Be”
+							(the player avatar is not gender-specific). 
+						</p>
+
+						<div class="collapse" id="ascender-collapse">
+							<div class="card card-body">		
+								<h2 class="align-left">My Contribution</h2>
+								<p class="article">
+									My role in the team was to create the player controller and the gameplay that
+									would be generated from interacting via that controller. The controller was
+									made from scratch for the project utilising Unity’s 2D physics system to provide 
+									movement and collision with the environment. As the Gameplay Programmer, I also 
+									collaborated heavily with the character artist and level designer to make sure 
+									that the project merged together smoothly before submission.
+								</p>
+
+								<p class="article">
+									The biggest challenge facing us during the Game Jam was of our own making as a
+									learning exercise. At the time, 2D was a relatively new feature and with the 48 
+									hour time limit, we concluded that 2D assets would be quicker to implement. 
+									Creating the character controller from scratch and using the 2D physics system were 
+									the biggest hurdles and took many hours overnight of tweaking to bring to a playable 
+									state. While the result remains unwieldy, it was an enthralling trial by fire that 
+									has forever sparked my flare for experimentation and learning new technologies that 
+									continue to evolve in the games industry.
+								</p>
+							</div>
+						</div>
+
+						<footer class="major">
+							<ul class="actions special">
+								<li><a href="https://globalgamejam.org/2014/games/ascender" target="_blank" class="button primary">Playable Demo</a></li>
+								<li><a href="https://github.com/AlexAdvani/Ascender-GGJ-2014/tree/master" target = "_blank" class= "button primary">Github Code</a></li>
+							</ul>
+							<button class="button primary collapse-button" data-toggle="collapse" data-target="#ascender-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
+						</footer>
+					</section>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<h2>Contact Me</h2>
+						<dl class="alt">
+							<dt>Address</dt>
+							<dd>17 Imberwood Close &bull; Woodcock Road &bull; Warminster &bull; Wiltshire &bull; UK</dd>
+							<dt>Phone</dt>
+							<dd>(+44) 7484 869733</dd>
+							<dt>Email</dt>
+							<dd><a href="mailto:penguinalex1@msn.com">penguinalex1@msn.com</a></dd>
+						</dl>
+						<ul class="icons">
+							<li><a href="http://www.linkedin.com/in/alex-advani" class="icon brands fa-linkedin alt" target="_blank"><span class="label">LinkedIn</a></li>
+							<li><a href="http://www.github.com/AlexAdvani" class="icon brands fa-github alt" target="_blank"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</footer>
+			</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
