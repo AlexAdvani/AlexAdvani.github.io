@@ -72,6 +72,14 @@ input, select, textarea {
 	appearance: none;
 }
 
+figcaption{
+	margin-bottom: 24px;
+}
+
+.remove-bottom-margin{
+	margin-bottom:5px !important;
+}
+
 /* Basic */
 
 	@-ms-viewport {
@@ -2428,6 +2436,12 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		.image.fit-full {
+			display: block;
+			margin: 0;
+			width: 100%;
+		}
+
 			.image.fit img {
 				width: 100%;
 			}
@@ -3852,4 +3866,36 @@ input, select, textarea {
 .card {
 	border: none;
 	padding: 0;
+}
+
+.carousel
+{
+	border: 1px solid #444444;
+	border-radius: 10px;
+	margin-bottom: 24px;
+}
+
+.carousel .carousel-control-prev, 
+.carousel .carousel-control-next, 
+.carousel .carousel-indicators
+{ 
+	visibility: hidden; 
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next,
+.carousel:hover .carousel-indicators
+{
+	visibility: visible; 
+}
+
+.carousel-control-prev, .carousel-control-next{
+	background-color: rgba(0,0,0,0.4) !important;
+	border-radius: 5%;
+	height: 10%;
+	margin: auto 0;
+}
+
+.carousel-indicators{
+	background-color: rgba(0,0,0,0.6);
 }

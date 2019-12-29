@@ -29,9 +29,10 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">About Me</a></li>
-							<li><a href="#first">Platformer Project</a></li>
+							<li><a href="#first">Cyberangel: Last Hope</a></li>
 							<li><a href="#second">Digital Desperado</a></li>
 							<li><a href="#third">Ascender</a></li>
+							<li><a href="#footer">Contact Me</a></li>
 						</ul>
 					</nav>
 
@@ -67,34 +68,35 @@
 					<!-- First Section - Platformer Project -->
 					<section id="first" class="main special">
 						<header class="major">
-							<h2>Unnamed Platformer Project</h2>
+							<h2>Cyberangel: Last Hope</h2>
 							<h4>Solo Project - Ongoing</h4>
+							<h4>Made in Unity 2018.3</h4>
 							<video class="image fit video-fit" autoplay muted loop>
 								<source src="videos/Platformer Project Video.mp4" type="video/mp4">
 							</video>
 						</header>
 
+						<p class="article">
+							Cyberangel: Last Hope is a 2D platformer focused on delivering intense gunplay 
+							and fast action with a character that is intuitive to control from the moment the game 
+							starts. It is a personal project developed with the aim of creating a completed, polished 
+							game in my free time. At the current stage of development, it is a gameplay prototype.
+						</p>
+
 						<h2 class="align-left">Features:</h2>
 						<ul class="content">
 							<li>2D Skeleton Animation</li>
 							<li>Dynamic 2D Camera</li>
-							<li>Controller Support</li>
-							<li>Controller Rumble Support</li>
+							<li>Controller Support (with Rumble)</li>
 							<li>Control Prompts React to Control Changes</li>
 							<li>Remappable Controls (for all control methods)</li>
 							<li>Object Pooling</li>
 							<li>Save System</li>
 						</ul>
 
-						<p class="article">
-							The Unnamed Platformer Project is a 2D platformer focused on delivering intense gunplay 
-							and fast action. It is a personal project developed with the aim of creating a completed, 
-							polished game while in between jobs. Currently, this is a gameplay prototype 
-							(hence the ‘Unnamed’ aspect and not a clever homage to the current goose phenomenon).
-							At the current stage, I have built the game with the aim to create a character 
-							that is intuitive to control from the moment the game starts, both in terms of movement 
-							and in terms of firing. 
-						</p>
+						<video class="image fit video-fit" autoplay muted loop>
+							<source src="videos/Platformer Project Movement Video.mp4" type="video/mp4">
+						</video>
 
 						<p class="article remove-paragraph-space">
 							The player has a vast array of movement abilities including:
@@ -110,51 +112,138 @@
 							<li>Drop Through Thin Platforms</li>
 						</ul>
 
-						<video class="image fit video-fit" autoplay muted loop>
-							<source src="videos/Platformer Project Movement Video.mp4" type="video/mp4">
-						</video>
-
 						<div class="collapse" id="platformer-collapse">
 							<div class="card card-body">
 								<p class="article">
-									The greatest challenge in developing the prototype was determining how the game 
-									would feel to play, I had to develop how the character controller was going to work, 
+									The greatest challenge (as with any 2D platformer) was the character movement
+									and game feel. I had to develop how the character controller was going to work, 
 									whether it was using Unity’s 2D physics system for collision and velocity or using 
-									raycasts for collision and calculating velocity manually. At the time, Unity’s 2D 
-									features were more limited and I opted for the latter option for snappier classic 
-									feeling character. I eventually found a motor component by the name of 
-									<a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller" target="_blank">Platformer Controller 2D</a> which I tweaked the code of 
-									to further tweak the movement mechanics. These changes involved changing the required 
-									input of wall jumps to resemble a similar control method to titles such as 
-									Super Metroid and implementing a ledge grab and climb mechanic so the character could 
-									fight off enemies while holding onto a ledge between moments of platforming. My main 
-									focus with the movement mechanics was to allow the character to be able to defend 
-									themselves in as many states as possible, the only exceptions being climbing ledges, 
-									dashing or sliding.  During my time working on altering the motor code, I also fixed 
-									an issue with collision which was raised on the <a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller/issues/52" target="_blank">Github page</a>
+									raycasts for collision and calculating velocity manually. At the start of the project in 2017,
+									Unity’s 2D features were more limited and I opted for the latter option for snappier classic 
+									feeling character. 
+								</p>
+								<p class="article">
+									I eventually found a motor component by the name of 
+									<a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller" target="_blank">Platformer Controller 2D</a>
+									that needed some tweaking to match my needs. These changes involved changing the required 
+									input of wall jumps to resemble a similar control method to titles such as Super Metroid 
+									as well as a implementing a ledge grab / climb mechanic. Due to the use of single component 
+									for such a complicated motor, finding the appropriate code and changing it was much more difficult than originally I estimated.
+									During my time working on altering the motor code, I also fixed an issue with collision which
+									was raised on the <a href="https://github.com/cjddmut/Unity-2D-Platformer-Controller/issues/52" target="_blank">Github page</a>
+								</p>
+								<p class="article">
+									My main focus with the movement mechanics was to allow the character to be able to defend themselves 
+									in as many states as possible so the gunplay has been built to be available in most cases, the only
+									exceptions being climbing ledges, dashing or sliding.
 								</p>
 
-								<img class="image fit image-center" src="images/PlatformerProjectAimImage.png">
+								<img class="image fit image-center remove-bottom-margin" src="images/CyberangelAimImage.png">
+								<figcaption class="align-left">Aiming a weapon while grabbing a ledge.</figcaption>
 
 								<p class="article">
 									Another issue arose upon deciding on the animation method, 2D skeleton animation. 
-									This was chosen to best incorporate characters with high resolution art by creating a texture 
-									compiled with animatable parts to save on memory. Animating as a skeleton also allowed 
-									the ability to animate in layers as well as interpolate between animations smoothly.
-									I chose Spine as my animation software due to its wide array of features, 
-									multiplatform usage and active community. However, Spine didn’t integrate with Unity’s 
-									animation tree so I had to develop my own animation logic in a separate component that 
-									would inform the SkeletonAnimator component what animation to play on what animation layer. 
-									The solution involved using an MVC style approach where the AnimatorController 
+									This was chosen to best incorporate characters with high resolution art as well as the 
+									ability to animate in layers and interpolate between animations smoothly.
+									I chose <a href="http://esotericsoftware.com/" target="_blank">Spine</a> as my animation software 
+									due to its wide array of features, multiplatform usage and active community. 
+								</p>
+								<p class="article">
+									However, Spine didn’t integrate with Unity’s animation tree so I had to develop my own animation 
+									logic in a separate component that would inform the SkeletonAnimator component what animation to 
+									play on what animation layer. The solution involved using an MVC style approach where the AnimatorController 
 									(View in this case) would have access to player state fed from a main PlayerController 
 									that took in inputs and fed it to the motor (Model) to utilise movement. On top of this, 
 									the PlayerController would manage elements exclusive to the player such as weapon inventory.
 								</p>
 
+								<h2 class="align-left">Current Work in Progress</h2>
+
 								<p class="article">
-									Working on this solo project has given me a chance to grow in a variety of areas
-									and allowed me to define my own solutions in those areas.
+									After finishing the last build, I have been focusing on improving the art and animation of
+									the main character. This started with a final version of the character being designed:
 								</p>
+
+								<div id="cyberangel-character-carousel" class="carousel slide" data-ride="carousel">
+									<ol class="carousel-indicators">
+										<li data-target="#cyberangel-character-carousel" data-slide-to="0" class="active"></li>
+										<li data-target="#cyberangel-character-carousel" data-slide-to="1"></li>
+										<li data-target="#cyberangel-character-carousel" data-slide-to="2"></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img class="image fit-full", src="images/SarahTurnaroundSketch.png" alt="Sketch Slide">
+										</div>
+										<div class="carousel-item">
+											<img class="image fit-full", src="images/SarahTurnaroundLineArt.png" alt="Lineart Slide">
+										</div>
+										<div class="carousel-item">
+											<img class="image fit-full", src="images/SarahTurnaroundFinal.png" alt="Final Slide">
+										</div>
+									</div>
+									
+									<button class="carousel-control-prev" data-target="#cyberangel-character-carousel" role="button" data-slide="prev" aria-controls="cyberangel-character-carousel">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</button>
+									<button class="carousel-control-next" data-target="#cyberangel-character-carousel" role="button" data-slide="next" aria-controls="cyberangel-character-carousel">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+
+								<p class="article">
+									Alongside this, I have been working lighting 2D assets with normal maps using 
+									<a href="https://www.codeandweb.com/spriteilluminator" target="_blank">SpriteIlluminator</a>. 
+									As the main character is still being rigged and undergoing final changes, 
+									I decided to test out this new look with the weaponry. 
+								</p>
+
+								<p class="article">
+									Spine’s Unity package comes equipped with a collection of useful shaders which lit 
+									shaders with all of the mapping options that come with shaders intended for 3D objects. 
+									These maps include normal, specular, and emission maps. For the SMG shown below, I 
+									created normal and specular maps for each moveable part:
+								</p>
+
+								<div id="cyberangel-smg-carousel" class="carousel slide" data-ride="carousel">
+									<ol class="carousel-indicators">
+										<li data-target="#cyberangel-smg-carousel" data-slide-to="0" class="active"></li>
+										<li data-target="#cyberangel-smg-carousel" data-slide-to="1"></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img class="image fit-full", src="images/CyberangelSMGUnlit.png" alt="Unlit Slide">
+										</div>
+										<div class="carousel-item">
+											<img class="image fit-full", src="images/CyberangelSMGLit.png" alt="Lit Slide">
+										</div>
+									</div>
+									
+									<button class="carousel-control-prev" data-target="#cyberangel-smg-carousel" role="button" data-slide="prev" aria-controls="cyberangel-character-carousel">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="sr-only">Previous</span>
+									</button>
+									<button class="carousel-control-next" data-target="#cyberangel-smg-carousel" role="button" data-slide="next" aria-controls="cyberangel-character-carousel">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="sr-only">Next</span>
+									</a>
+								</div>
+
+								<p class="article remove-paragraph-space">
+									Working on this solo project has given me a chance to grow in a variety of areas
+									and allowed me to define my own solutions in those areas. 
+									
+									For this project I worked on:
+								</p>
+
+								<ul class="content">
+									<li>Character Gameplay</li>
+									<li>Weapon Gunplay</li>
+									<li>Character/Weapon Art and Animation</li>
+									<li>Environment and Menu Art</li>
+									<li>UI Layout and Logic</li>
+								</ul>
 
 								<h2 class="align-left">Asset Packages Used:</h2>
 								<ul class="content">
@@ -177,8 +266,8 @@
 
 						<footer class="major">
 							<ul class="actions special">
-								<li><a href="https://dl.dropboxusercontent.com/s/9i0yhm4n7kvtabz/PlatformerProject%20v0_22.zip" class="button primary">Playable Demo</a></li>
-								<li><a href="https://github.com/AlexAdvani/PlatformerShooterProject" target="_blank" class="button primary">Github Code</a></li>
+								<li><a href="https://dl.dropboxusercontent.com/s/9i0yhm4n7kvtabz/PlatformerProject%20v0_22.zip" class="button primary">Playable Demo (Windows)</a></li>
+								<li><a href="https://github.com/AlexAdvani/Cyberangel-Last-Hope" target="_blank" class="button primary">Github Code</a></li>
 							</ul>
 							<button class="button primary collapse-button" data-toggle="collapse" data-target="#platformer-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
 						</footer>
@@ -189,6 +278,7 @@
 						<header class="major">
 							<h2>Digital Desperado</h2>
 							<h4>Team University Project - Programmer (Level Generation)</h4>
+							<h4>Made in Unity 5.0</h4>
 							<video class="image fit video-fit" autoplay muted loop>
 								<source src="videos/Digital Desperado Video.mp4" type="video/mp4">
 							</video>
@@ -200,13 +290,17 @@
 							focused on destroying an array of targets in a variety of levels as quickly 
 							as possible. Our focus when starting the project was to be able to make 
 							designing content as efficient as possible with the limited development time 
-							we had (2 months amongst other projects in our final year. Every level in the 
+							we had (2 months amongst other projects in our final year. 
+						</p>
+						<p class="article">
+							Every level in the 
 							game is built from an XML file that generates all of the targets and level 
 							objects. We utilized this approach so that every team member could create 
 							levels without the need to use Unity and manually add scene files. There was 
 							also a level editor proposed in the early stages as well but this was scrapped 
 							to focus on a more polished experience.
 						</p>
+
 
 						<div class="collapse" id="digital-desperado-collapse">
 							<div class="card card-body">
@@ -222,20 +316,35 @@
 
 								<p class="article">
 									One challenge that arose during development came from our approach to dynamically
-									create levels from an external file compared to designing them in Unity itself.
-									The problem was that while we were able to detect XML files in the desired folder
-									and display the results, the system was able to detect any XML file and would
-									crash without notice. We resolved this by loading all of the level data as soon
-									as the game started and checking for each of the required nodes. Each failed
-									level was flagged and an error was displayed for each level and the node(s)
-									it was missing. We also made a check for if the folder was empty or missing.
+									create levels from an external file compared to designing them in Unity itself. 
+									The problem was that while I was able to detect XML files in the desired folder and 
+									display the results, the system was able to detect any XML file and would crash 
+									without notice. I resolved this by loading all of the level data as soon as the game 
+									started and checking for each of the required nodes. Each failed level was flagged and
+									an error was displayed for each level and the node(s) it was missing. I also made a 
+									check for if the folder was empty or missing.
 								</p>
+
+								<p class="article">
+									To further ease level creation, I did attempt to create a level editor. The editor 
+									would have been a separate application during development with the goal of adding it 
+									to the game in the final stages of development. Despite how well the level generation 
+									worked, I underestimated the amount of time required to create a fully fledged level 
+									editor, even for a small game. In the week that I dedicated to the editor, I managed to 
+									implement the ability to create platforms, a file dialog to set a file destination and 
+									the ability to save the final XML. The main challenge was developing the editor to be 
+									able to catch errors without crashing and accurately inform the user of the problem. 
+									The decision to scrap the editor came down to the complexity of the feature and time 
+									requirements for the project.
+								</p>
+
+								<img class="image fit image-center" src="images/DigDesLevel.png">
 							</div>
 						</div>
 					
 						<footer class="major">
 							<ul class="actions special">
-								<li><a href="https://gamejolt.com/games/digital-desperado/54563" target="_blank" class="button primary">Playable Demo</a></li>
+								<li><a href="https://gamejolt.com/games/digital-desperado/54563" target="_blank" class="button primary">Playable Demo (Windows)</a></li>
 								<li><a href="https://github.com/AlexAdvani/Digital-Desperado" target="_blank" class="button primary">Github Code</a></li>
 							</ul>
 							<button class="button primary collapse-button" data-toggle="collapse" data-target="#digital-desperado-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
@@ -247,6 +356,7 @@
 						<header class="major">
 							<h2>Ascender</h2>
 							<h4>Team Global Game Jam Project - Programmer (Gameplay)</h4> 
+							<h4>Made in Unity 4.0</h4>
 							<video class="image fit video-fit" autoplay muted loop>
 								<source src="videos/Ascender Video.mp4" type="video/mp4">
 							</video>
@@ -283,12 +393,17 @@
 									has forever sparked my flare for experimentation and learning new technologies that 
 									continue to evolve in the games industry.
 								</p>
+
+								<p class="article">
+									Overall, this was an interesting chance to experient with creating 2D movement without
+									using premade code under a tight deadline.
+								</p>
 							</div>
 						</div>
 
 						<footer class="major">
 							<ul class="actions special">
-								<li><a href="https://globalgamejam.org/2014/games/ascender" target="_blank" class="button primary">Playable Demo</a></li>
+								<li><a href="https://globalgamejam.org/2014/games/ascender" target="_blank" class="button primary">Playable Demo (Windows)</a></li>
 								<li><a href="https://github.com/AlexAdvani/Ascender-GGJ-2014/tree/master" target = "_blank" class= "button primary">Github Code</a></li>
 							</ul>
 							<button class="button primary collapse-button" data-toggle="collapse" data-target="#ascender-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
@@ -300,11 +415,12 @@
 				<footer id="footer">
 					<section>
 						<h2>Contact Me</h2>
+						<br>
 						<dl class="alt">
 							<dt>Address</dt>
-							<dd>17 Imberwood Close &bull; Woodcock Road &bull; Warminster &bull; Wiltshire &bull; UK</dd>
+							<dd>Warminster &bull; United Kingdom</dd>
 							<dt>Phone</dt>
-							<dd>(+44) 7484 869733</dd>
+							<dd>07484 869733</dd>
 							<dt>Email</dt>
 							<dd><a href="mailto:penguinalex1@msn.com">penguinalex1@msn.com</a></dd>
 						</dl>
