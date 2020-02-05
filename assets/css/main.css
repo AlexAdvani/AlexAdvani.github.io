@@ -3837,6 +3837,12 @@ figcaption{
 
 		}
 
+	#CVTag
+	{
+		font-weight: 600;
+		margin-left: 12px;
+	}
+
 /* Wrapper */
 
 	#wrapper {
