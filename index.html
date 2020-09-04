@@ -29,9 +29,10 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">About Me</a></li>
-							<li><a href="#first">Cyberangel: Last Hope</a></li>
-							<li><a href="#second">Digital Desperado</a></li>
-							<li><a href="#third">Ascender</a></li>
+							<li><a href="#loop">A Forgetful Loop</a></li>
+							<li><a href="#cyberangel">Cyberangel: Last Hope</a></li>
+							<li><a href="#desperado">Digital Desperado</a></li>
+							<li><a href="#ascender">Ascender</a></li>
 							<li><a href="#footer">Contact Me</a></li>
 						</ul>
 					</nav>
@@ -70,8 +71,98 @@
 							</div>
 						</section>
 
-					<!-- First Section - Platformer Project -->
-					<section id="first" class="main special">
+					<!-- A Forgetful Loop -->
+					<section id="loop" class="main special">
+						<header class="major">
+							<h2>A Forgetful Loop</h2>
+							<h4>Paid Remote Contract - Additional Programmer / Tester</h4>
+							<h4>Made in Unity 2019.4</h4>
+							<div class="video-container">
+								<iframe src="https://www.youtube.com/embed/AsL0ZNCXPms" 
+									frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+									allowfullscreen>
+								</iframe>
+							</div>
+						</header>
+
+						<p class="article">
+							A Forgetful Loop is a puzzle game where the player is tasked to delegate various specialists to fix a 
+							malfunctioning time machine while stuck in a repeating time loop. Players must race to fix key nodes 
+							that persist across time loops to complete the circuit. The game is focused on delivering fast paced 
+							strategy that evolves as you progress through loops to fix the circuits and the specialists get faster 
+							at completing nodes that they had fixed in previous loops. 
+						</p>
+
+						<div class="collapse" id="loop-collapse">
+							<div class="card card-body">
+								<h2 class="align-left">My Contribution</h2>
+
+								<p class="article ">
+									My role as an Additional Programmer on the project was to work on three key areas: Tooltips, Credits and Settings. 
+									As a Tester, I was focused on playing through the entire game to find any issues with balancing on puzzle difficulty both 
+									for the casual players who would play through the minimum number of puzzles and for more dedicated players who would play 
+									every puzzle. 
+								</p>
+
+								<h3 class="align-left">Tooltips</h3>
+								<p class="article">
+									The Tooltips requirement focused on delivering an extensible tooltip system that could display a tooltip based on hovering over 
+									an object with a TooltipTrigger component that could be adapted to display any custom information a project could need. This came 
+									from a set of classes that could be inherited from to create new tooltip types and new tooltip datatypes to provide the necessary 
+									information. All that was needed to call one of these tooltips would be to set a Tooltip Data scriptable object which would call 
+									its Open method when the mouse hovered over it. 
+								</p>
+								<p class="article">
+									The other focus with the Tooltips was to make sure that tooltips would be able to be used with both world objects and UI objects 
+									on either a Screen Space - Overlay canvas or Screen Space - Camera canvas. A provided option was to give the designer a choice on 
+									whether the mouse can look for world objects under UI objects or if UI objects blocked raycasts to world objects.
+								</p>
+								<video class="image fit video-fit" autoplay muted loop>
+									<source src="videos/AFL Tooltip Video.mp4" type="video/mp4">
+								</video>
+
+								<h3 class="align-left">Credits</h3>
+								<p class="article">
+									For the Credits requirement, the task was to create a reader that would take a ‘.txt’ file and parse it into a credits screen with 
+									the necessary formatting. Tags were used in the text file that could be expanded upon in future projects that would set up formats 
+									that could display a Character to Actor credit or a block of credits for example. Images could also be specified via an ID that 
+									would search an array that would be set in the Unity Editor that could be used to display logos for software or licenses. The 
+									intention of the credits parser would be make creating and adjusting a credits screen throughout the project as easy as possible 
+									without even the use of the Unity Editor. 
+								</p>
+
+								<h3 class="align-left">Settings</h3>
+								<p class="article">
+									For the Settings task, I had to troubleshoot a basic version of the Settings page. The problem with the page was that it was unable 
+									to detect any changes that were made to any settings meaning that the user could not apply or revert any settings. The problem came 
+									from the implementation of the class that was held all current settings that user had made alongside a version of the last applied 
+									settings. When any changes were made, the current settings was set equal to the current ui settings meaning that they were assigned 
+									as references to the same memory address making the equality check for changes wrong. To fix this, I implemented a cloning method 
+									that did not rely on ICloneable<> but instead converted the object into JSON and then made a new object from that JSON string. 
+									This method allowed us to iterate the Settings page with new settings without needing to update an overridden Clone() that would 
+									be needed with ICloneable<>.
+								</p>
+								<p class="article">
+									Alongside this, I also a created a dialog that would be called when the user would change the resolution or toggle the fullscreen. 
+									This dialog would ask the user if they were happy with the new settings or if they would like to revert. A small timer was also 
+									implemented in case the user could not see the game after the change and upon reaching 0, the setting would automatically revert. 
+								</p>
+								<video class="image fit video-fit" autoplay muted loop>
+									<source src="videos/AFL Settings Video.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+
+						<footer class="major">
+							<ul class="actions special">
+								<li><a href="https://bighandinsky.itch.io/forgetful-loop?fbclid=IwAR0XDUWEVwxMkH8eyvo7chxx6Iq_7pMLz7_-s2y5PG5Hy5ZoYvHi9bEAvT0" target = "#blank" class="button primary">Itch.io Store Page</a></li>
+							</ul>
+							<button class="button primary collapse-button" data-toggle="collapse" data-target="#loop-collapse" role="button" aria-expanded="false" aria-controls="CollapseExample">Read More &raquo;</button>
+						</footer>
+					</section>
+
+					<!-- Platformer Project -->
+					<section id="cyberangel" class="main special">
 						<header class="major">
 							<h2>Cyberangel: Last Hope</h2>
 							<h4>Solo Project - Ongoing</h4>
@@ -278,8 +369,8 @@
 						</footer>
 					</section>
 
-					<!-- Second Section - Digital Desperado -->
-					<section id="second" class="main special">
+					<!-- Digital Desperado -->
+					<section id="desperado" class="main special">
 						<header class="major">
 							<h2>Digital Desperado</h2>
 							<h4>Team University Project - Programmer (Level Generation)</h4>
@@ -356,8 +447,8 @@
 						</footer>
 					</section>
 
-					<!-- Third Section - Ascender -->
-					<section id="third" class="main special">
+					<!-- Ascender -->
+					<section id="ascender" class="main special">
 						<header class="major">
 							<h2>Ascender</h2>
 							<h4>Team Global Game Jam Project - Programmer (Gameplay)</h4> 
